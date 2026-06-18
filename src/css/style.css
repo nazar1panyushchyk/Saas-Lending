@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #020907;
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+}
+
+a {
+  color: #ffffff;
+}
+
+button {
+  color: #ffffff;
+  font-family: "Urbanist", sans-serif;
+  cursor: pointer;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  padding: 25px;
+  gap: 75px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 88px;
+  height: 12px;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 45px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 100%;
+}
+
+.theme-btn {
+  width: 36px;
+  height: 36px;
+  background: rgba(7, 117, 80, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  border: none;
+}
+
+.theme-btn img {
+  width: 20px;
+  height: 19px;
+}
+
+.get-started-btn {
+  width: 141px;
+  height: 50px;
+  background-color: #00a56b;
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+main {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.ai-text {
+  font-size: 10px;
+  font-weight: 400;
+  font-family: "Unbounded", sans-serif;
+  line-height: 100%;
+}
+
+.ai-text img {
+  width: 8px;
+  height: 8px;
+}
+
+h1 {
+  font-size: 80px;
+  font-weight: 600;
+  line-height: 147%;
+}
+
+.hero-text {
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Unbounded", sans-serif;
+  line-height: 100%;
+}
+
+.demo-btn {
+  width: 141px;
+  height: 50px;
+  background: rgba(7, 117, 80, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.hero-btn {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 40px;
+}
