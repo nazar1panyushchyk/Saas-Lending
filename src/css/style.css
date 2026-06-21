@@ -129,6 +129,30 @@ header {
   border: none;
   font-size: 18px;
   font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.get-started-btn:hover {
+  background: #c6f57a;
+  color: #060807;
+}
+
+.btn-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  height: 1em;
+  overflow: hidden;
+}
+
+.get-started-btn span,
+.demo-btn span {
+  transition: transform 0.3s ease;
+}
+
+.get-started-btn:hover .btn-text span,
+.demo-btn:hover .btn-text span {
+  transform: translateY(-100%);
 }
 
 section,
@@ -145,13 +169,28 @@ section,
   text-align: center;
 }
 
-.ai-text,
-.footer-bottom p,
-.footer-bottom a {
-  font-size: 10px;
+.ai-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  width: max-content;
+  background: rgba(8, 136, 88, 0.15);
+  border: 1px solid rgba(0, 255, 150, 0.08);
+  border-radius: 50px;
+  color: #ffffff;
+  font-size: 12px;
   font-weight: 400;
   font-family: "Unbounded", sans-serif;
   line-height: 100%;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.ai-text:hover {
+  background: rgba(8, 136, 88, 0.3);
+  border-color: rgba(0, 255, 150, 0.2);
 }
 
 .ai-text img {
@@ -165,8 +204,39 @@ h1 {
   line-height: 147%;
 }
 
-h1 span {
+h1 .highlight {
   -webkit-text-stroke: 1px black;
+}
+
+.highlight,
+a {
+  position: relative;
+  display: inline-block;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+h1:hover .highlight,
+a:hover {
+  background: linear-gradient(270deg, #00a56b, #b2ffd7, #00a56b, #73f0b4);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: auroraText 3s ease infinite;
+}
+
+@keyframes auroraText {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .subtitle {
@@ -184,6 +254,7 @@ h1 span {
   border: none;
   font-size: 18px;
   font-weight: 500;
+  transition: background 0.3s ease;
 }
 
 .hero-btn {
@@ -246,7 +317,7 @@ h1 span {
   border-radius: 32px;
 
   background:
-    radial-gradient(circle, rgba(0, 255, 150, 0.05) 1.5px, transparent 1px),
+    radial-gradient(circle, rgba(0, 255, 150, 0.03) 1.5px, transparent 1px),
     linear-gradient(
       101deg,
       rgba(13, 77, 56, 0.2) 18.53%,
@@ -298,12 +369,19 @@ h1 span {
   gap: 50px;
   width: 334px;
   height: 404px;
-  background: linear-gradient(
-    101deg,
-    rgba(13, 77, 56, 0.2) 18.53%,
-    rgba(8, 136, 88, 0.2) 81.47%
-  );
+  background:
+    radial-gradient(circle, rgba(0, 255, 150, 0.03) 1.5px, transparent 1px),
+    linear-gradient(
+      101deg,
+      rgba(13, 77, 56, 0.2) 18.53%,
+      rgba(8, 136, 88, 0.2) 81.47%
+    );
   backdrop-filter: blur(10px);
+  background-position: center, center;
+  background-size:
+    30px 30px,
+    cover;
+  background-repeat: repeat, no-repeat;
   border-radius: 25px;
 }
 
@@ -328,12 +406,19 @@ h1 span {
   width: 100%;
   height: 419px;
   margin: 0 auto;
-  background: linear-gradient(
-    101deg,
-    rgba(13, 77, 56, 0.2) 18.53%,
-    rgba(8, 136, 88, 0.2) 81.47%
-  );
+  background:
+    radial-gradient(circle, rgba(0, 255, 150, 0.03) 1.5px, transparent 1px),
+    linear-gradient(
+      101deg,
+      rgba(13, 77, 56, 0.2) 18.53%,
+      rgba(8, 136, 88, 0.2) 81.47%
+    );
   backdrop-filter: blur(10px);
+  background-position: center, center;
+  background-size:
+    30px 30px,
+    cover;
+  background-repeat: repeat, no-repeat;
   border-radius: 30px;
   overflow: hidden;
 }
@@ -404,9 +489,45 @@ h1 span {
   max-width: 344px;
 }
 
-.phone {
+.phone-container {
+  position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: 720px;
+}
+
+.phone-grid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 723px;
+  z-index: 1;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 150, 0.05) 2px,
+    transparent 1.5px
+  );
+  background-position: center, center;
+  background-size:
+    30px 30px,
+    cover;
+  background-repeat: repeat, no-repeat;
+}
+
+.phone {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  z-index: 2;
+}
+
+.phone img {
+  display: block;
+  transform: translateX(-8px);
 }
 
 .final-cta {
@@ -525,6 +646,14 @@ footer::after {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
+.footer-bottom p,
+.footer-bottom a {
+  font-size: 10px;
+  font-weight: 400;
+  font-family: "Unbounded", sans-serif;
+  line-height: 100%;
 }
 
 .footer-bottom {
