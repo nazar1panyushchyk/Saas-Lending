@@ -1,46 +1,6 @@
 :root {
   --bg-color: #020907;
-  --text-color: #ffffff;
-  --get-started-btn: #00a56b;
-  --demo-btn: rgba(7, 117, 80, 0.1);
-  --card-bg:
-    radial-gradient(circle, rgba(0, 255, 150, 0.03) 1.5px, transparent 1px),
-    linear-gradient(
-      101deg,
-      rgba(13, 77, 56, 0.2) 18.53%,
-      rgba(8, 136, 88, 0.2) 81.47%
-    );
-}
-
-.light-mode {
-  --bg-color: #ffffff;
-  --dark-color: #060807;
-  --accent-color: #c6f57a;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  position: relative;
-  background: #020907;
-  min-height: 100vh;
-  overflow-x: hidden;
-  color: #ffffff;
-  font-family: "Urbanist", sans-serif;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -2;
-
-  background:
+  --body-glow:
     radial-gradient(
       1200px 600px at 50% -10%,
       rgba(0, 255, 150, 0.18),
@@ -56,10 +16,98 @@ body::before {
       rgba(0, 255, 140, 0.1),
       transparent 60%
     );
+  --primary-text-color: #ffffff;
+  --secondary-text-color: #060807;
+  --cta-primary-bg: #00a56b;
+  --cta-secondary-bg: #0775501a;
+  --accent-color:
+    radial-gradient(circle, rgba(0, 255, 150, 0.03) 1.5px, transparent 1px),
+    linear-gradient(
+      101deg,
+      rgba(13, 77, 56, 0.2) 18.53%,
+      rgba(8, 136, 88, 0.2) 81.47%
+    );
+  --dark-color: #0775501a;
+  --theme-bg: #0775501a;
+  --image-bg:
+    radial-gradient(circle, rgba(0, 255, 150, 0.03) 1.5px, transparent 1px),
+    linear-gradient(
+      101deg,
+      rgba(13, 77, 56, 0.2) 18.53%,
+      rgba(8, 136, 88, 0.2) 81.47%
+    );
+  --border-color: linear-gradient(
+    68.83deg,
+    rgba(255, 255, 255, 0) 77.62%,
+    #0a452f 108.11%
+  );
+  --logo-color: white;
+  --final-cta-glow: radial-gradient(
+    ellipse at center,
+    rgba(0, 210, 142, 0.22) 0%,
+    rgba(0, 124, 88, 0.14) 44%,
+    rgba(0, 31, 24, 0.06) 66%,
+    transparent 78%
+  );
+  --footer-glow: radial-gradient(
+    1600px 760px at 50% 160%,
+    rgba(0, 226, 151, 0.44) 0%,
+    rgba(0, 156, 106, 0.3) 34%,
+    rgba(0, 84, 61, 0.16) 58%,
+    transparent 82%
+  );
+  --footer-bottom-glow: radial-gradient(
+    ellipse at center bottom,
+    rgba(0, 226, 151, 0.36) 0%,
+    rgba(0, 144, 99, 0.22) 46%,
+    transparent 72%
+  );
+}
+
+.light-mode {
+  --bg-color: #ffffff;
+  --body-glow: none;
+  --primary-text-color: #060807;
+  --secondary-text-color: #ffffff;
+  --cta-primary-bg: #060807;
+  --cta-secondary-bg: #c6f57a;
+  --accent-color: #c6f57a;
+  --dark-color: #060807;
+  --theme-bg: #c6f57a;
+  --image-bg: #060807;
+  --border-color: none;
+  --logo-color: black;
+  --final-cta-glow: none;
+  --footer-glow: none;
+  --footer-bottom-glow: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background: var(--bg-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--primary-text-color);
+  font-family: "Urbanist", sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  background: var(--body-glow);
 }
 
 a {
-  color: #ffffff;
+  color: var(--primary-text-color);
   text-decoration: none;
 }
 
@@ -107,6 +155,7 @@ header {
 .logo {
   width: 88px;
   height: 12px;
+  fill: var(--logo-color);
 }
 
 .nav-bar {
@@ -128,10 +177,14 @@ header {
 }
 
 .theme-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 36px;
   height: 36px;
-  background: rgba(7, 117, 80, 0.1);
+  background: var(--theme-bg);
   backdrop-filter: blur(10px);
+  padding: 0;
   border-radius: 8px;
   border: none;
 }
@@ -141,10 +194,22 @@ header {
   height: 19px;
 }
 
+.theme-btn img:last-child {
+  display: none;
+}
+
+.light-mode .theme-btn img:first-child {
+  display: none;
+}
+
+.light-mode .theme-btn img:last-child {
+  display: block;
+}
+
 .get-started-btn {
   width: 141px;
   height: 50px;
-  background-color: #00a56b;
+  background-color: var(--cta-primary-bg);
   border-radius: 8px;
   border: none;
   font-size: 18px;
@@ -204,7 +269,7 @@ section,
   width: max-content;
   background: transparent;
   border-radius: 10px;
-  color: #fff;
+  color: var(--primary-text-color);
   font-size: 12px;
   font-weight: 400;
   font-family: "Unbounded", sans-serif;
@@ -263,7 +328,7 @@ h1 .highlight {
 a {
   position: relative;
   display: inline-block;
-  color: #ffffff;
+  color: var(--primary-text-color);
   transition: all 0.3s ease;
 }
 
@@ -299,7 +364,8 @@ a:hover {
 .demo-btn {
   width: 141px;
   height: 50px;
-  background: rgba(7, 117, 80, 0.1);
+  background: var(--cta-secondary-bg);
+  color: var(--primary-text-color);
   backdrop-filter: blur(10px);
   border-radius: 8px;
   border: none;
@@ -324,7 +390,7 @@ a:hover {
 .about-text {
   display: flex;
   flex-direction: column;
-  padding: 40px;
+  padding: 90px 0 0 0;
   gap: 25px;
 }
 
@@ -354,27 +420,14 @@ a:hover {
 
 .ai-image-bg {
   position: absolute;
-
   left: 50%;
   bottom: 0;
-
   transform: translateX(-50%);
-
   width: 523px;
   height: 470px;
-
   z-index: 1;
-
   border-radius: 32px;
-
-  background:
-    radial-gradient(circle, rgba(0, 255, 150, 0.03) 1.5px, transparent 1px),
-    linear-gradient(
-      101deg,
-      rgba(13, 77, 56, 0.2) 18.53%,
-      rgba(8, 136, 88, 0.2) 81.47%
-    );
-
+  background: var(--image-bg);
   backdrop-filter: blur(10px);
   background-position: center, center;
   background-size:
@@ -422,13 +475,7 @@ a:hover {
   overflow: hidden;
   width: 334px;
   height: 404px;
-  background:
-    radial-gradient(circle, rgba(0, 255, 150, 0.03) 1.5px, transparent 1px),
-    linear-gradient(
-      101deg,
-      rgba(13, 77, 56, 0.2) 18.53%,
-      rgba(8, 136, 88, 0.2) 81.47%
-    );
+  background: var(--accent-color);
   backdrop-filter: blur(10px);
   background-position: center, center;
   background-size:
@@ -443,25 +490,17 @@ a:hover {
 
 .card::before {
   content: "";
-
   position: absolute;
-
   width: 170%;
   height: 170%;
-
   left: 50%;
   top: 50%;
-
   background: url("../assets/img/card-gradient.png") center/cover no-repeat;
-
   transform: translate(-50%, -50%) scale(0.8);
-
   opacity: 0;
-
   transition:
     opacity 0.45s ease,
     transform 0.45s ease;
-
   z-index: 0;
 }
 
@@ -485,7 +524,7 @@ a:hover {
 
 .card:hover h3,
 .card:hover p {
-  color: #000;
+  color: #060807;
 }
 
 @keyframes gradientMove {
@@ -531,13 +570,7 @@ a:hover {
   width: 100%;
   height: 419px;
   margin: 0 auto;
-  background:
-    radial-gradient(circle, rgba(0, 255, 150, 0.03) 1.5px, transparent 1px),
-    linear-gradient(
-      101deg,
-      rgba(13, 77, 56, 0.2) 18.53%,
-      rgba(8, 136, 88, 0.2) 81.47%
-    );
+  background: var(--accent-color);
   backdrop-filter: blur(10px);
   background-position: center, center;
   background-size:
@@ -557,18 +590,14 @@ a:hover {
   bottom: 0;
   border-radius: 30px;
   padding: 1px;
-  background: linear-gradient(
-    68.83deg,
-    rgba(255, 255, 255, 0) 77.62%,
-    #0a452f 108.11%
-  );
-  -webkit-mask:
+  background: var(--border-color);
+  /* -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
+    linear-gradient(#fff 0 0); */
   mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
+  /* -webkit-mask-composite: xor; */
   mask-composite: exclude;
   pointer-events: none;
 }
@@ -601,7 +630,8 @@ a:hover {
   gap: 5px;
   width: 68px;
   height: 28px;
-  background: #0775501a;
+  background: var(--dark-color);
+  color: #ffffff;
   border-radius: 8px;
 }
 
@@ -627,7 +657,7 @@ a:hover {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100vw;
+  width: 100%;
   height: 723px;
   z-index: 1;
   background: radial-gradient(
@@ -689,13 +719,7 @@ footer {
   width: min(1500px, 140vw);
   height: 560px;
   transform: translateX(-50%);
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0, 210, 142, 0.22) 0%,
-    rgba(0, 124, 88, 0.14) 44%,
-    rgba(0, 31, 24, 0.06) 66%,
-    transparent 78%
-  );
+  background: var(--final-cta-glow);
   filter: blur(52px);
   z-index: -1;
   pointer-events: none;
@@ -705,13 +729,7 @@ footer::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    1600px 760px at 50% 160%,
-    rgba(0, 226, 151, 0.44) 0%,
-    rgba(0, 156, 106, 0.3) 34%,
-    rgba(0, 84, 61, 0.16) 58%,
-    transparent 82%
-  );
+  background: var(--footer-glow);
   filter: blur(34px);
   mask-image: linear-gradient(to bottom, transparent 0%, #000 32%, #000 100%);
   -webkit-mask-image: linear-gradient(
@@ -732,12 +750,7 @@ footer::after {
   width: min(1700px, 150vw);
   height: 360px;
   transform: translateX(-50%);
-  background: radial-gradient(
-    ellipse at center bottom,
-    rgba(0, 226, 151, 0.36) 0%,
-    rgba(0, 144, 99, 0.22) 46%,
-    transparent 72%
-  );
+  background: var(--footer-bottom-glow);
   filter: blur(28px);
   z-index: -1;
   pointer-events: none;

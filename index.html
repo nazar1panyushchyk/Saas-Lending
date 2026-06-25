@@ -18,11 +18,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SaaS-Lending</title>
   </head>
-  <body>
+  <body class="light-mode">
     <div class="stars"></div>
     <header>
       <div class="logo-container">
-        <img class="logo" src="./src/assets/img/white-logo.svg" alt="logo" />
+        <img
+          class="logo theme-image"
+          src="./src/assets/img/white-logo.svg"
+          data-dark="./src/assets/img/white-logo.svg"
+          data-light="./src/assets/img/dark-logo.svg"
+          alt="logo"
+        />
       </div>
       <nav>
         <div class="nav-bar">
@@ -34,7 +40,8 @@
             <a href="">Contact</a>
           </div>
           <button class="theme-btn">
-            <img src="./src/assets/img/dark.svg" alt="" />
+            <img src="./src/assets/img/dark.svg" alt="dark" />
+            <img src="./src/assets/img/sun.svg" alt="light" />
           </button>
           <button class="get-started-btn">
             <div class="btn-text">
@@ -90,7 +97,13 @@
         </div>
         <div class="ai-image">
           <div class="ai-image-bg"></div>
-          <img src="./src/assets/img/human.png" alt="AI human" />
+          <img
+            class="theme-image"
+            src="./src/assets/img/human.png"
+            data-dark="./src/assets/img/human.png"
+            data-light="./src/assets/img/light-human.png"
+            alt="AI human"
+          />
         </div>
       </section>
       <section class="benefits">
@@ -107,7 +120,13 @@
             <p class="subtitle">
               Stay on top of priorities with AI-powered organization.
             </p>
-            <img src="./src/assets/img/logo-icon.svg" alt="logo-icon" />
+            <img
+              class="theme-image"
+              src="./src/assets/img/logo-icon.svg"
+              data-dark="./src/assets/img/logo-icon.svg"
+              data-light="./src/assets/img/dark-logo-icon.svg"
+              alt="logo-icon"
+            />
           </div>
           <div class="card">
             <h3>
@@ -117,7 +136,13 @@
             <p class="subtitle">
               Let repetitive tasks run themselves while you focus on impact.
             </p>
-            <img src="./src/assets/img/logo-icon.svg" alt="logo-icon" />
+            <img
+              class="theme-image"
+              src="./src/assets/img/logo-icon.svg"
+              data-dark="./src/assets/img/logo-icon.svg"
+              data-light="./src/assets/img/dark-logo-icon.svg"
+              alt="logo-icon"
+            />
           </div>
           <div class="card">
             <h3>
@@ -127,7 +152,13 @@
             <p class="subtitle">
               Keep your team aligned with real-time updates and clear workflows.
             </p>
-            <img src="./src/assets/img/logo-icon.svg" alt="logo-icon" />
+            <img
+              class="theme-image"
+              src="./src/assets/img/logo-icon.svg"
+              data-dark="./src/assets/img/logo-icon.svg"
+              data-light="./src/assets/img/dark-logo-icon.svg"
+              alt="logo-icon"
+            />
           </div>
         </div>
       </section>
@@ -199,16 +230,22 @@
           </button>
         </div>
         <div class="large-logo">
-          <img class="" src="./src/assets/img/dark-logo.svg" alt="logo" />
+          <img src="./src/assets/img/large-logo.svg" alt="logo" />
 
-           <div class="logo-light"></div> 
+          <div class="logo-light"></div>
         </div>
       </section>
     </main>
     <footer>
       <div class="footer-container">
         <div class="footer-top">
-          <img src="./src/assets/img/logo-icon.svg" alt="logo-icon" />
+          <img
+            class="theme-image"
+            src="./src/assets/img/logo-icon.svg"
+            data-dark="./src/assets/img/logo-icon.svg"
+            data-light="./src/assets/img/dark-logo-icon.svg"
+            alt="logo-icon"
+          />
           <div class="footer-nav">
             <nav class="footer-links">
               <a href="">Home</a>
@@ -233,6 +270,6 @@
         </div>
       </div>
     </footer>
-    <script type="module" src="/src/js/script.js"></script>
+    <script type="module" src="/src/js/script.js" defer></script>
   </body>
 </html>
