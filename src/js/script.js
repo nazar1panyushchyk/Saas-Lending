@@ -1,6 +1,8 @@
 let lightmode = localStorage.getItem(".light-mode");
 const themeSwitcher = document.querySelector(".theme-btn");
 const images = document.querySelectorAll(".theme-image");
+const menuBtn = document.querySelector(".menu-btn");
+const header = document.querySelector("header");
 
 const enableLightmode = () => {
   document.body.classList.add("light-mode");
@@ -18,7 +20,7 @@ const disableLightmode = () => {
 
 themeSwitcher.addEventListener("click", () => {
   lightmode = localStorage.getItem("light-mode");
-  
+
   if (lightmode !== "active") {
     enableLightmode();
     updateThemeImages(true);
@@ -29,7 +31,11 @@ themeSwitcher.addEventListener("click", () => {
 });
 
 function updateThemeImages(isLight) {
-  images.forEach(img => {
+  images.forEach((img) => {
     img.src = isLight ? img.dataset.light : img.dataset.dark;
   });
 }
+
+menuBtn.addEventListener("click", () => {
+  header.classList.toggle("menu-open");
+});
