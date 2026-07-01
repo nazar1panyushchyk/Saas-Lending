@@ -53,6 +53,7 @@
     rgba(0, 31, 24, 0.06) 66%,
     transparent 78%
   );
+  --logo-glow-color: 0, 165, 107;
   --footer-glow: radial-gradient(
     1600px 760px at 50% 160%,
     rgba(0, 226, 151, 0.44) 0%,
@@ -101,6 +102,7 @@
   --border-color: none;
   --logo-color: black;
   --final-cta-glow: none;
+  --logo-glow-color: 198, 245, 122;
   --footer-glow: none;
   --footer-bottom-glow: none;
   --primary-text-hover: linear-gradient(
@@ -707,13 +709,9 @@ a:hover {
   border-radius: 30px;
   padding: 1px;
   background: var(--border-color);
-  /* -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0); */
   mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
-  /* -webkit-mask-composite: xor; */
   mask-composite: exclude;
   pointer-events: none;
 }
@@ -832,21 +830,6 @@ a:hover {
   overflow: visible;
 }
 
-.final-cta-btn {
-  padding: 0;
-}
-
-footer {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  gap: 38px;
-  padding: 80px 208px;
-  isolation: isolate;
-  overflow: visible;
-  background: transparent;
-}
-
 .final-cta::after {
   content: "";
   position: absolute;
@@ -859,6 +842,55 @@ footer {
   filter: blur(52px);
   z-index: -1;
   pointer-events: none;
+}
+
+.final-cta-btn {
+  padding: 0;
+}
+
+.large-logo {
+  position: relative;
+  width: 408px;
+}
+
+.large-logo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: filter 0.45s ease;
+  will-change: filter;
+}
+
+.large-logo:hover img {
+  animation: logoGlow 1.8s ease-in-out infinite;
+}
+
+@keyframes logoGlow {
+  0% {
+    filter: drop-shadow(0 0 0px rgba(var(--logo-glow-color), 0))
+      drop-shadow(0 0 0px rgba(var(--logo-glow-color), 0));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 6px rgba(var(--logo-glow-color), 0.75))
+      drop-shadow(0 0 18px rgba(var(--logo-glow-color), 0.5));
+  }
+
+  100% {
+    filter: drop-shadow(0 0 0px rgba(var(--logo-glow-color), 0))
+      drop-shadow(0 0 0px rgba(var(--logo-glow-color), 0));
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 38px;
+  padding: 80px 208px;
+  isolation: isolate;
+  overflow: visible;
+  background: transparent;
 }
 
 footer::before {
@@ -1032,7 +1064,7 @@ footer::after {
     max-width: 700px;
   }
 
-  .large-logo img {
+  .large-logo svg {
     width: 700px;
     max-width: 100%;
   }
@@ -1252,6 +1284,8 @@ footer::after {
   }
 
   .large-logo {
+    display: flex;
+    justify-content: center;
     padding: 70px 0;
   }
 
